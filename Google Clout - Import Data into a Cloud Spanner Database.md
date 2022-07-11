@@ -26,6 +26,9 @@ Create database within the Cloud Spanner Instance
 gcloud spanner databases create $DATABASE
 ```
 
+[Create and query a database using gcloud CLI ]
+(https://cloud.google.com/spanner/docs/getting-started/gcloud)
+
 ## Task 2  - Create a table in the Cloud Spanner database with the correct name and schema as per the table above
 
 Replace the <table name> with the table valued provided by the lab
@@ -72,6 +75,8 @@ Copy the file to the Cloud Storage Bucket
 gsutil cp startrek.json $BUCKET
 ```
 
+[Import and export data in CSV format]
+(https://cloud.google.com/spanner/docs/import-export-csv)
 ## Task 4  - Create and run a Dataflow template job to successfully import the text data into the Cloud Spanner database
 
 Run the below command to crate the dataflow job. View this in the dataflow product page and wait for it to complete
@@ -79,3 +84,6 @@ Run the below command to crate the dataflow job. View this in the dataflow produ
 gcloud dataflow jobs run Job --gcs-location gs://dataflow-templates-us-central1/latest/GCS_Text_to_Cloud_Spanner --region us-central1 \
 --staging-location $BUCKET/temp --parameters instanceId=$SPANNER_NAME,databaseId=$DATABASE,importManifest=$BUCKET/startrek.json
 ```
+
+[Cloud Storage Text to Cloud Spanner]
+(https://cloud.google.com/dataflow/docs/guides/templates/provided-batch#gcs_text_to_cloud_spanner)
