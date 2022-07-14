@@ -35,8 +35,7 @@ gcloud functions deploy cloud_function \win
 --trigger-event google.storage.object.finalize
 ```
 
-[cp - Copy files and objects](https://cloud.google.com/storage/docs/gsutil/commands/cp)
-
+[cp - Copy files and objects](https://cloud.google.com/storage/docs/gsutil/commands/cp)  
 [Google Cloud Storage Triggers](https://cloud.google.com/functions/docs/calling/storage)
 
 ## Task 3 - Trigger the Cloud Function by copying any file to the Cloud Storage bucket you created
