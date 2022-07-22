@@ -2,9 +2,8 @@
 Navigate to Logs Explorer  
 From the filters select 'Kubernetes Container'  
 ![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/feature/challenge3/Images/1-logging-kubernetes-container.png)  
-The under Pod Names select the entry that starts 'logging-'  
+The under Pod Names select the entry that starts 'logging-', then Click create metric. Name the metric as per the lab instructions  
 ![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/feature/challenge3/Images/2-logging.png)  
-Click create metric, name the metric as per the lab instructions
 
 ## Task 2 - Create a log-based metric for the Crashing app named Crashing Metric .
 Repeat the above but under Pod Names select the entry that starts 'crashing-'
