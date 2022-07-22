@@ -1,7 +1,7 @@
 ## Task 1 - Create a log-based metric for the Logging app named Logging Metric
 Navigate to Logs Explorer  
 From the filters select 'Kubernetes Container'  
-[](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/feature/challenge3/Images/1-logging-kubernetes-container.png)  
+![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/feature/challenge3/Images/1-logging-kubernetes-container.png)  
 The under Pod Names select the entry that starts 'logging-'  
 Click create metric, name the metric as per the lab instructions
 
