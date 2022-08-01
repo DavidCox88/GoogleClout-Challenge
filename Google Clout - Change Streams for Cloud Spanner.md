@@ -14,12 +14,12 @@ Run the below command in Cloud Shell to create the spanner instance
 ```
 gcloud spanner instances create $SPANNERINSTANCE --config=regional-$REGION \
 --description=$SPANNERINSTANCE --nodes=1
-```  
+```
 ### Create a Cloud Spanner database named Cloud Spanner Meta Database in the Cloud Spanner metadata instance you just created.
 Create database within the Cloud Spanner Instance using Cloud Shell
 ```
 gcloud spanner databases create $DATABASE --instance=$SPANNERINSTANCE
-```  
+```
 
 ### Create a BigQuery dataset in your lab project, located in the dynamically selected lab startup region, called BigQuery Dataset .
 Create BiqQuery dataset using Cloud Shell
