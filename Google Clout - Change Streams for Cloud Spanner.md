@@ -52,7 +52,7 @@ Cloud Spanner metadata instance ID: <Cloud Spanner Meta Instance>
 Cloud Spanner metadata database: <Cloud Spanner Meta Database>
 Cloud Spanner change stream: ordersstream 
 BigQuery dataset: <BigQuery Dataset>
-```  
+```
 Then click run job
 
 ## Task 4 - Insert data into the orders table to trigger the change streams logging process.
