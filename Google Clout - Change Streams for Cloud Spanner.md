@@ -8,7 +8,7 @@ BQDATASET=<BigQuery Dataset>
 export PROJECTID=$(gcloud info --format='value(config.project)')
 ```
 
-## Task 1  - Create the following Google Cloud database resources:
+## Task 1  - Create the following Google Cloud database resources:  
 ### Create a small, single node, Cloud Spanner instance named Cloud Spanner Meta Instance in the dynamically selected lab startup region.
 Run the below command in Cloud Shell to create the spanner instance
 ```
