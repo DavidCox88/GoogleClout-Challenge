@@ -1,4 +1,4 @@
-## Set up - Define variables to given by the lab
+## Set up - Define variables given by the lab
 Replace values within <> with the values provided by the lab
 ```
 BUCKET=gs://<SCRIPT-BUCKET>
@@ -8,7 +8,7 @@ export PROJECTID=$(gcloud info --format='value(config.project)')
 SERVICEACCOUNT=web-admin-sa@$PROJECTID.iam.gserviceaccount.com
 ```
 
-Run the below in cloud shell to impersonate the service impersonate_service_account
+Run the below in cloud shell to impersonate the service account
 ```
 gcloud config set auth/impersonate_service_account $SERVICEACCOUNT
 ```
@@ -22,7 +22,7 @@ gsutil mb $BUCKET
 [Create storage buckets](https://cloud.google.com/storage/docs/creating-buckets#storage-create-bucket-cli)
 
 ## Task 2 - Copy the startup script deploy-web-server.sh from the storage bucket gs://[SOURCE-BUCKET] to the storage bucket gs://[SCRIPT-BUCKET]
-Run the below in Cloud Shell to copy the deploy-web-server.sh to the newly created storage bucket
+Run the below in Cloud Shell to copy the deploy-web-server.sh file to the newly created storage bucket
 ```
 gsutil cp $SOURCE $BUCKET
 ```
