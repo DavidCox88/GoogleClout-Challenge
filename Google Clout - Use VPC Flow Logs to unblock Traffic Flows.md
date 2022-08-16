@@ -26,7 +26,8 @@ Once the logs have started loading into bigquery, query the jsonPayload table. T
 SELECT jsonPayload
 FROM `qwiklabs-gcp-00-fcbdc5036b72.flow_logs.compute_googleapis_com_vpc_flows_20220816` LIMIT 1000
 ```
-Within this look for destination_port. Identify the port number that needs to be opened, you should see an 80 (which is the http port) and another value for the udp port (in my case this was 32767)
+Within this look for jsonPayload_destination_port. Identify the port numbers that needs to be opened, you should see an 80 (which is the http port) and another value for the udp port (in my case this was 32767)
+
 [Create a sink](https://cloud.google.com/logging/docs/export/configure_export_v2)
 [gcloud logging sinks create](https://cloud.google.com/sdk/gcloud/reference/logging/sinks/create)
 [Viewing logs in BigQuery](https://cloud.google.com/logging/docs/export/using_exported_logs#bigquery-overview)
