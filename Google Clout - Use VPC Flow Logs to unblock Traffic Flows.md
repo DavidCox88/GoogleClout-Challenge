@@ -8,7 +8,7 @@ export PROJECTID=$(gcloud info --format='value(config.project)')
 ```
 
 ## Task 1 - Configure VPC Flow Logs on the custom-vpc VPC network.
-Run the following commands in cloud shell to enable VPC Flow logs for the two subnets
+Run the following commands in Cloud shell to enable VPC Flow logs for the two subnets
 ```
 gcloud compute networks subnets update subnet1 --enable-flow-logs --region=$REGION
 gcloud compute networks subnets update subnet2 --enable-flow-logs --region=$REGION
@@ -34,7 +34,7 @@ Within this look for jsonPayload_destination_port. Identify the port numbers tha
 
 ## Task 3 - Add Firewall rule(s) to allow the blocked traffic to flow.
 
-Run the following in cloud shell to create the firewall rule for http traffic
+Run the following in Cloud shell to create the firewall rule for http traffic
 ```
 gcloud compute --project=$PROJECTID firewall-rules create http --direction=INGRESS --priority=1000 --network=$CUSTOMVPC --action=ALLOW --rules=tcp:80 --source-ranges=10.0.0.2
 ```
