@@ -1,5 +1,5 @@
 ## Set up - Define variables given by the lab
-Replace values within <> with the values provided by the lab. For the Cloud Build Service account, naivgate to IAM and find the service account that finishes '@cloudbuild.gserviceaccount.com'
+Replace values within <> with the values provided by the lab. For the Cloud Build Service account, naivgate to IAM & Admin and find the service account that finishes '@cloudbuild.gserviceaccount.com'
 ```
 REGION=<default region>
 PROJECTID=<Project_ID>
@@ -47,13 +47,13 @@ sed -i 's/region-here/<default region>/g' cloudbuild.yaml
 sed -i 's/region-here/<default region>/g' clouddeploy.yaml
 ``` 
 #### Create the Cloud Deploy pipeline for the lab using the updated clouddeploy.yaml file that has the correct Project ID and Region settings for this lab
-Run the following in CLoud Shell to create the Cloud Deploy pipeline
+Run the following in Cloud Shell to create the Cloud Deploy pipeline
 ```
 gcloud deploy apply --file=clouddeploy.yaml --region=$REGION
 ```  
 ## Step 3 - Configure the Artifact Registry and trigger a build by pushing an update to your repo
 #### Create a docker format repository in the Artifact Registry named pop-stats to store container images for this pipeline
-Run the following in CLoud Shell to create the Artifact Registry  
+Run the following in Cloud Shell to create the Artifact Registry  
 ```
 gcloud artifacts repositories create pop-stats \
     --repository-format=docker \
@@ -73,30 +73,31 @@ git push origin
 ```
 ### Step 4 - Promote and approve the Cloud Deploy pipeline stages from test through to production
 ### Cloud Console
-The below instructions show how to do these steps using the CLoud Console
+The below instructions show how to do these steps using the Cloud Console
 #### Promote the application from Test to Staging
-Go to cloud build and wait until the build finishes, this should take around two minutes.
+Go to cloud build and wait until the build finishes, this should take around two minutes.  
 ![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/feature/challenge7/Images/cloud-build.jpg)  
-Go to Cloud Deploy, click the pipeline name and wait for deployments in the test stage to finish. A promote button will now appear, click this to promote to staging.
+Go to Cloud Deploy, click the pipeline name and wait for deployments in the test stage to finish. A promote button will now appear, click this to promote to staging.  
 ![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/feature/challenge7/Images/cloud-deploy-promote.jpg)  
-This will cause a pop up box to appear, click promote
-![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/feature/challenge7/Images/promote-dialogue.jpg.jpg)  
+This will cause a pop up box to appear, click promote  
+![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/feature/challenge7/Images/promote-dialogue.jpg)  
 #### Promote the application from Staging to Production
-Similar to above, wait for the deployemnt to finish to staging before clicking the promote button
+Similar to above, wait for the deployment to finish to staging before clicking the promote button
 
 #### Review and approve the release to Production
-After doing the above, you will see 1 pending review in the pipeline between staging and prod. Click this.
+After doing the above, you will see 1 pending review in the pipeline between staging and prod. Click this.  
 ![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/feature/challenge7/Images/cloud-deploy-review.jpg) 
-You will then see the below in which you need to click review
+You will then see the below in which you need to click review  
 ![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/feature/challenge7/Images/cloud-deploy-approve.jpg) 
-Upon clicking this, the below dialogue box should pop up. Click approve to promote the deployment to prod.
+Upon clicking this, the below dialogue box should pop up. Click approve to promote the deployment to prod.  
 ![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/feature/challenge7/Images/cloud-deploy-approve-dialogue.jpg) 
 ### Cloud Shell
-The below instructions show how to do these steps using the CLoud Shell
+The below instructions show how to do these steps using the Cloud Shell
 #### Promote the application from Test to Staging
-Go to Cloud Build and wait until the build finishes, this should take around two minutes. Copy the Commit ID and in Cloud Shell use it to create the following variable:
+Go to Cloud Build and wait until the build finishes, this should take around two minutes. Copy the Commit ID and in Cloud Shell use it to create the following variable:  
+![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/feature/challenge7/Images/cloud-build-commitid.jpg)  
 ```
-COMMIT=cd521ee
+COMMIT=<commit id>
 ```
 Then run the following command to promote the deployment form release to staging  
 ```
