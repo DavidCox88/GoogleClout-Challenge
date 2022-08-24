@@ -90,11 +90,11 @@ Similar to above, wait for the deployment to finish to staging before clicking t
 
 #### Review and approve the release to Production
 After doing the above, you will see 1 pending review in the pipeline between staging and prod. Click this.  
-![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/main/Images/cloud-deploy-review.jpg) 
+![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/main/Images/cloud-deploy-review.jpg)  
 You will then see the below in which you need to click review  
-![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/main/Images/cloud-deploy-approve.jpg) 
+![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/main/Images/cloud-deploy-approve.jpg)  
 Upon clicking this, the below dialogue box should pop up. Click approve to promote the deployment to prod.  
-![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/main/Images/cloud-deploy-approve-dialogue.jpg) 
+![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/main/Images/cloud-deploy-approve-dialogue.jpg)  
 ### Cloud Shell
 The below instructions show how to do these steps using the Cloud Shell
 #### Promote the application from Test to Staging
