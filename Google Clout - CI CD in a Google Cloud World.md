@@ -80,26 +80,26 @@ git push origin
 The below instructions show how to do these steps using the Cloud Console
 #### Promote the application from Test to Staging
 Go to cloud build and wait until the build finishes, this should take around two minutes.  
-![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/feature/challenge7/Images/cloud-build.jpg)  
+![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/main/Images/cloud-build.jpg)  
 Go to Cloud Deploy, click the pipeline name and wait for deployments in the test stage to finish. A promote button will now appear, click this to promote to staging.  
-![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/feature/challenge7/Images/cloud-deploy-promote.jpg)  
+![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/main/Images/cloud-deploy-promote.jpg)  
 This will cause a pop up box to appear, click promote  
-![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/feature/challenge7/Images/promote-dialogue.jpg)  
+![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/main/Images/promote-dialogue.jpg)  
 #### Promote the application from Staging to Production
 Similar to above, wait for the deployment to finish to staging before clicking the promote button
 
 #### Review and approve the release to Production
 After doing the above, you will see 1 pending review in the pipeline between staging and prod. Click this.  
-![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/feature/challenge7/Images/cloud-deploy-review.jpg) 
+![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/main/Images/cloud-deploy-review.jpg) 
 You will then see the below in which you need to click review  
-![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/feature/challenge7/Images/cloud-deploy-approve.jpg) 
+![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/main/Images/cloud-deploy-approve.jpg) 
 Upon clicking this, the below dialogue box should pop up. Click approve to promote the deployment to prod.  
-![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/feature/challenge7/Images/cloud-deploy-approve-dialogue.jpg) 
+![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/main/Images/cloud-deploy-approve-dialogue.jpg) 
 ### Cloud Shell
 The below instructions show how to do these steps using the Cloud Shell
 #### Promote the application from Test to Staging
 Go to Cloud Build and wait until the build finishes, this should take around two minutes. Copy the Commit ID and in Cloud Shell use it to create the following variable:  
-![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/feature/challenge7/Images/cloud-build-commitid.jpg)  
+![](https://raw.githubusercontent.com/DavidCox88/GoogleClout-Challenge/main/Images/cloud-build-commitid.jpg)  
 ```
 COMMIT=<commit id>
 ```
@@ -119,8 +119,3 @@ Run the following command to approve the deployment to prod
 gcloud deploy rollouts approve rel-$COMMIT-to-prod-0001 --delivery-pipeline=pop-stats-pipeline --release=rel-$COMMIT --region=$REGION
 ```
 [gcloud deploy rollouts approve](https://cloud.google.com/sdk/gcloud/reference/deploy/rollouts/approve)
-
-
-
-
-https://cloud.google.com/sdk/gcloud/reference/deploy/releases/promote
