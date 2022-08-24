@@ -15,6 +15,7 @@ gcloud beta builds triggers create cloud-source-repositories \
 --branch-pattern=./* \
 --build-config=cloudbuild.yaml
 ```  
+[Create Build Trigger](https://cloud.google.com/build/docs/automating-builds/create-manage-triggers#build_trigger)
 ### Add the Cloud Deploy Releaser and Service Account User roles to the Cloud Build service account
 Run the following command in Cloud Build to grant the roles to the Cloud Build Service Account:  
 ```
@@ -26,12 +27,13 @@ gcloud projects add-iam-policy-binding $PROJECTID \
     --member=serviceAccount:$CLOUDBUILDSA \
     --role=roles/iam.serviceAccountUser
 ```
-
+[gcloud projects add-iam-policy-binding](https://cloud.google.com/sdk/gcloud/reference/projects/add-iam-policy-binding)
 ## Step 2 - Clone the pop-kustomize repository to Cloud Shell, configure the Cloud Build and Cloud Deploy YAML files, and create the Cloud Deploy pipeline  
 Run the following command in Cloud Shell to clone the repo:  
 ```
 gcloud source repos clone pop-kustomize --project=$PROJECTID
 ```  
+[Clone using the gcloud CLI](https://cloud.google.com/source-repositories/docs/cloning-repositories#clone-using-the-cloud-sdk)
 ### Edit and modify both the cloudbuild.yamland clouddeploy.yaml files as follows:
 #### Change all instances of the placeholder text project-id-here in both files to the lab Project ID: Project_ID
 #### Change all instances of the placeholder text region-here in both files to the lab region : Default Region
@@ -51,6 +53,7 @@ Run the following in Cloud Shell to create the Cloud Deploy pipeline
 ```
 gcloud deploy apply --file=clouddeploy.yaml --region=$REGION
 ```  
+[gcloud deploy apply](https://cloud.google.com/sdk/gcloud/reference/deploy/apply)
 ## Step 3 - Configure the Artifact Registry and trigger a build by pushing an update to your repo
 #### Create a docker format repository in the Artifact Registry named pop-stats to store container images for this pipeline
 Run the following in Cloud Shell to create the Artifact Registry  
@@ -59,6 +62,7 @@ gcloud artifacts repositories create pop-stats \
     --repository-format=docker \
     --location=$REGION
 ```  
+[gcloud artifacts repositories create](https://cloud.google.com/sdk/gcloud/reference/artifacts/repositories/create)
 #### Commit the updated yaml files as a change to the application in your local clone of the pop-kustomize git repository and then push those updates to the Cloud Source Repository
 In Cloud shell, begin by using git config to create the neccessary user credentials need to commit  
 ```
@@ -103,6 +107,7 @@ Then run the following command to promote the deployment form release to staging
 ```
 gcloud deploy releases promote --release=rel-$COMMIT --delivery-pipeline=pop-stats-pipeline --region=$REGION --to-target=staging
 ``` 
+[gcloud deploy release promote](https://cloud.google.com/sdk/gcloud/reference/deploy/releases/promote)
 #### Promote the application from Staging to Production
 Run the following command to promote the deployment from staging to prod  
 ```
@@ -113,16 +118,9 @@ Run the following command to approve the deployment to prod
 ```
 gcloud deploy rollouts approve rel-$COMMIT-to-prod-0001 --delivery-pipeline=pop-stats-pipeline --release=rel-$COMMIT --region=$REGION
 ```
-
-https://cloud.google.com/build/docs/automating-builds/create-manage-triggers#:~:text=A%20Cloud%20Build%20trigger%20automatically,changes%20that%20match%20certain%20criteria.
-https://cloud.google.com/iam/docs/grant-role-console
-https://cloud.google.com/sdk/gcloud/reference/artifacts/repositories/create
-https://cloud.google.com/sdk/gcloud/reference/deploy/releases/promote
+[gcloud deploy rollouts approve](https://cloud.google.com/sdk/gcloud/reference/deploy/rollouts/approve)
 
 
 
 
-https://cloud.google.com/build/docs/automating-builds/create-manage-triggers#:~:text=A%20Cloud%20Build%20trigger%20automatically,changes%20that%20match%20certain%20criteria.
-https://cloud.google.com/iam/docs/grant-role-console
-https://cloud.google.com/sdk/gcloud/reference/artifacts/repositories/create
 https://cloud.google.com/sdk/gcloud/reference/deploy/releases/promote
